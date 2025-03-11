@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Post-Workout Meal Suggestions</title>
+<style>
+body {
+    font-family: sans-serif;
+    padding: 20px;
+}
+#mealSuggestion {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+<h1>Post-Workout Meal Suggestions</h1>
+<label for="workoutType">Select Workout Type:</label>
+<select id="workoutType">
+    <option value="weightlifting">Weightlifting</option>
+    <option value="swimming">Swimming</option>
+    <option value="biking">Biking</option>
+    <option value="running">Running</option>
+</select>
+<button onclick="getMealSuggestion()">Get Meal Suggestion</button>
+<div id="mealSuggestion"></div>
+
+<script>
+function getMealSuggestion() {
+    const workoutType = document.getElementById("workoutType").value;
+    const mealSuggestions = {
+        weightlifting: [
+            "Scrambled eggs with spinach and mushrooms, served with whole grain toast and a side of sliced avocado.",
+            "Tofu scramble with onions and red beans, served over brown rice and topped with a sprinkle of walnuts.",
+            "Salmon fillet baked with broccoli and lemon juice, accompanied by a baked sweet potato.",
+            "Lentil and quinoa stew with spinach, served with a side of whole grain bread and a small apple.",
+            "Greek salad with feta cheese, spinach, onions, and avocado. Add a side of cooked millet."
+        ],
+        swimming: [
+            "Banana and peanut butter smoothie with oat milk and a scoop of protein powder (if available).",
+            "Whole grain pasta with salmon, spinach, and a light lemon juice dressing.",
+            "Sweet potato and black bean chili topped with avocado and a dollop of feta cheese.",
+            "Quinoa salad with chopped apples, walnuts, and a light vinaigrette.",
+            "Oatmeal made with oat milk, topped with sliced banana, pecans and a side of hard boiled egg."
+        ],
+        biking: [
+            "Whole grain bread with peanut butter and sliced banana.",
+            "Brown rice bowl with tofu, broccoli, and a light soy sauce or lemon juice dressing.",
+            "Sweet potato and red bean mash with a side of spinach.",
+            "Apple slices with peanut butter and a handful of walnuts.",
+            "Bulgur salad with chopped mushrooms, spinach, and lemon juice."
+        ],
+        running: [
+            "Banana and oat milk smoothie with a handful of spinach.",
+            "Whole grain toast with avocado and a poached egg.",
+            "Brown rice with lentils and a side of steamed broccoli.",
+            "Apple slices with almond butter or peanut butter.",
+            "Sweet potato baked with cinnamon and a side of black beans."
+        ]
+    };
+
+    const suggestion = mealSuggestions[workoutType][Math.floor(Math.random() * mealSuggestions[workoutType].length)];
+    document.getElementById("mealSuggestion").textContent = suggestion;
+}
+</script>
+</body>
+</html>
